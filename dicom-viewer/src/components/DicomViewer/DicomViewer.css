@@ -1,0 +1,184 @@
+.dicom-viewer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  min-height: 500px;
+}
+
+.viewer-controls {
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #e0e0e0;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.draw-btn {
+  background-color: #27ae60;
+  color: white;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s;
+}
+
+.draw-btn:hover:not(:disabled) {
+  background-color: #229954;
+}
+
+.draw-btn:disabled {
+  background-color: #95a5a6;
+  cursor: not-allowed;
+}
+
+.draw-btn.active {
+  background-color: #e67e22;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.canvas-container {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  background-color: #000;
+  min-height: 400px;
+}
+
+.cornerstone-element {
+  width: 100% !important;
+  height: 100% !important;
+  position: relative !important;
+  min-height: 400px !important;
+}
+
+.cornerstone-element canvas {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* Ensure Konva canvas is positioned correctly */
+.canvas-container canvas {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+}
+
+.no-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  min-height: 400px;
+  background-color: #f8f9fa;
+  color: #666;
+  font-style: italic;
+}
+
+.no-image p {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+/* 添加到 DicomViewer.css 或 App.css */
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes drawingPulse {
+  0% {
+    background-color: #2ecc71;
+    transform: scale(1);
+  }
+  50% {
+    background-color: #27ae60;
+    transform: scale(1.2);
+  }
+  100% {
+    background-color: #2ecc71;
+    transform: scale(1);
+  }
+}
+
+/* 繪圖提示面板動畫 */
+.drawing-hint-panel {
+  animation: slideInLeft 0.3s ease-out;
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* 編輯面板動畫 */
+.edit-panel {
+  animation: slideInRight 0.3s ease-out;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* 脈動指示器 */
+.pulse-indicator {
+  animation: drawingPulse 1.5s infinite ease-in-out;
+}
+
+/* 滑鼠游標樣式 */
+.drawing-cursor {
+  cursor: crosshair !important;
+}
+
+.editing-cursor {
+  cursor: move !important;
+}
+
+.vertex-cursor {
+  cursor: grab !important;
+}
+
+.vertex-cursor:active {
+  cursor: grabbing !important;
+}
