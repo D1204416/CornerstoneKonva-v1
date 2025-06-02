@@ -85,6 +85,9 @@ dicom-viewer/
 ## 🚀 安裝與啟動方式
 
 ```bash
+# 進入資料夾
+cd dicom-viewer
+
 # 安裝依賴套件
 npm install
 
