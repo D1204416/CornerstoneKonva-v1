@@ -53,5 +53,3 @@ jspm_packages/
 # Yarn Integrity file
 .yarn-integrity
 
-# System files
-.DS_Store
