@@ -3,6 +3,9 @@
   flex-direction: column;
   height: 100vh;
   width: 100vw;
+  overflow-y: auto;
+  padding-right: 18px;
+  padding-bottom: 18px;
 }
 
 .app-header {
